@@ -51,4 +51,9 @@ public class BoardDAOImpl implements BoardDAO {
     public int getCount(Page page) throws Exception {
         return sqlSession.selectOne("board.getCount", page);
     }
+
+    @Override
+    public int boardCnt() throws Exception {
+        return sqlSession.selectOne("board.boardCnt");
+    }
 }

@@ -112,15 +112,6 @@ public class MemberController {
         out.println(json.toString());
     }
 
-    /* 관리자가 볼 수 있는 회원 목록 */
-    @RequestMapping(value="list.do", method=RequestMethod.GET)
-    public String memberList(Model model) throws Exception {
-        List<Member> memberList = memberService.memberList();
-        model.addAttribute("memberList", memberList);
-        model.addAttribute("title", "회원 목록");
-        return "/member/memberList";
-    }
-
     @GetMapping("delete.do")
     public String memberDelete(HttpServletRequest request, Model model) throws Exception {
         String id = request.getParameter("id");

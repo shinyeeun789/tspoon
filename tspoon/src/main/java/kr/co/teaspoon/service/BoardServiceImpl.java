@@ -28,6 +28,11 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public int boardCnt() throws Exception {
+        return boardDAO.boardCnt();
+    }
+
+    @Override
     public BoardVO boardDetail(int seq) throws Exception {
         return boardDAO.boardDetail(seq);
     }

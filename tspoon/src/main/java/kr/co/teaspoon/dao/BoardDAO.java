@@ -15,4 +15,5 @@ public interface BoardDAO {
     public void boardEdit(Board dto) throws Exception;
     public List<Category> categories() throws Exception;
     public int getCount(Page page) throws Exception;
+    public int boardCnt() throws Exception;
 }

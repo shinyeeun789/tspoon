@@ -13,4 +13,5 @@ public interface EventDAO {
     public void eventDelete(int eno) throws Exception;
     public void eventEdit(Event event) throws Exception;
     public List<Event> ongoingEvents() throws Exception;
+    public List<Event> ongoingEvents(Page page) throws Exception;
 }

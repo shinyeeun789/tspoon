@@ -1,6 +1,7 @@
 package kr.co.teaspoon.service;
 
 import kr.co.teaspoon.dao.MemberDAO;
+import kr.co.teaspoon.dto.AdminChartVO;
 import kr.co.teaspoon.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,8 +28,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public int memberCount() throws Exception {
-        return memberDAO.memberCount();
+    public int memberCnt() throws Exception {
+        return memberDAO.memberCnt();
     }
 
     @Override
@@ -65,5 +66,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public boolean idCheck(String id) throws Exception {
         return memberDAO.getMember(id) == null ? true : false;
+    }
+
+    @Override
+    public List<AdminChartVO> adminChart() throws Exception {
+        return memberDAO.adminChart();
     }
 }

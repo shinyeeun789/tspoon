@@ -46,8 +46,13 @@
     <update id="updateCnt">
         update event set cnt=cnt+1 where eno=#{eno}
     </update>
-    <!-- 현재 중인 이벤트 목록 랜덤으로 6개 가져오기 (관리자 페이지에서 사용) -->
+    <!-- 현재 진행 중인 이벤트 목록 랜덤으로 6개 가져오기 (관리자 페이지에서 사용) -->
     <select id="ongoingEvents" resultType="kr.co.teaspoon.dto.Event">
         SELECT * FROM event where STATUS = 1 ORDER BY RAND() LIMIT 6
+    </select>
+    <!-- 현재 진행 중인 이벤트 목록 -->
+    <select id="ongoingEventsWithPage" resultType="kr.co.teaspoon.dto.Event">
+        SELECT * FROM event where STATUS = 1
+        ORDER BY eno desc LIMIT #{postStart}, #{postCount}
     </select>
 </mapper>

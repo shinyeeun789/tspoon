@@ -50,6 +50,23 @@
 
 <!-- 이벤트 영역 시작 -->
 <div class="container">
+    <div class="tabs is-centered mt-6">
+        <ul>
+            <li class="is-active">
+                <a href="${path}/event/list.do">
+                    <span class="icon is-small"><i class="fa-solid fa-star"></i></span>
+                    <span> 이벤트 </span>
+                </a>
+            </li>
+            <li>
+                <a href="${path}/winner/list.do">
+                    <span class="icon is-small"><i class="fa-solid fa-trophy"></i></span>
+                    <span> 당첨자 </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <form action="${path}/event/list.do" method="get" class="field has-addons has-addons-right mt-6">
         <p class="control">
                 <span class="select">
