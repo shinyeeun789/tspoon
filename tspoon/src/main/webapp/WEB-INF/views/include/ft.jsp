@@ -8,14 +8,14 @@
         <div class="columns is-multiline is-align-items-center border-bottom py-5">
             <div class="column is-4-desktop is-12-tablet">
                 <ul class="list-inline footer-menu has-text-centered has-text-left-desktop">
-                    <li class="list-inline-item"><a href="changelog.html">Changelog</a></li>
-                    <li class="list-inline-item"><a href="contact.html">contact</a></li>
-                    <li class="list-inline-item"><a href="search.html">Search</a></li>
+                    <li class="list-inline-item"><a href="changelog.html"> 회사 소개 </a></li>
+                    <li class="list-inline-item"><a href="contact.html"> 커뮤니티 </a></li>
+                    <li class="list-inline-item"><a href="search.html"> 고객지원 </a></li>
                 </ul>
             </div>
             <div class="column is-4-desktop is-12-tablet">
                 <a class="navbar-brand is-justify-content-center" href="${path1}">
-                    <img class="img-fluid" src="${path1}/resources/images/tspoon_logo.png" alt="티스푼 로고">
+                    <img class="img-fluid" src="${path1}/resources/images/tspoon_logo.png" alt="티스푼 로고" style="width:200px">
                 </a>
             </div>
             <div class="column is-4-desktop is-12-tablet">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="py-4 has-text-centered">
-            <small class="text-light">Copyright © 2023 - Develop by ShinYeEun &amp; © 2020 - Design by <a href="https://themefisher.com">themefisher </a></small>
+            <small class="text-light">Copyright © 2020 - Design by <a href="https://themefisher.com">themefisher </a> &amp; © 2023 - Develop by ShinYeEun </small>
         </div>
     </div>
 </footer>

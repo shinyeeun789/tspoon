@@ -44,11 +44,6 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public Member signIn(String id) throws Exception {
-        return sqlSession.selectOne("member.signIn", id);
-    }
-
-    @Override
     public Member loginCheck(String id) throws Exception {
         return sqlSession.selectOne("member.loginCheck", id);
     }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,6 +24,33 @@ public class MemberController {
 
     @Autowired
     HttpSession session;
+
+    // 로그인 폼 로딩
+    @GetMapping("login.do")
+    public String login(Model model) throws Exception {
+        return "/member/login";
+    }
+
+    // 로그인 처리
+    @RequestMapping(value = "login.do", method = RequestMethod.POST)
+    public String memberLogin(@RequestParam String id, @RequestParam String pw, RedirectAttributes rttr) throws Exception {
+        boolean ps = memberService.loginCheck(id, pw);
+        if(ps){
+            session.setAttribute("sid", id);
+            rttr.addFlashAttribute("msg", 1);
+            return "redirect:/";
+        } else {
+            rttr.addFlashAttribute("msg", 0);
+            return "redirect:login.do";
+        }
+    }
+
+    //로그아웃
+    @GetMapping("logout.do")
+    public String memberLogout(HttpSession session) throws Exception {
+        session.invalidate();
+        return "redirect:/";
+    }
 
     /* 관리자가 볼 수 있는 회원 목록 */
     @RequestMapping(value="list.do", method=RequestMethod.GET)
@@ -64,8 +92,4 @@ public class MemberController {
         return "/member/mypage";
     }
 
-    @GetMapping("login.do")
-    public String login(Model model) throws Exception {
-        return "/member/login";
-    }
 }

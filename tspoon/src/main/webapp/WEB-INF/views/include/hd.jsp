@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path1" value="${pageContext.request.contextPath}"/>
-<header id="hd" class="container is-fullhd">
     <nav class="navbar is-sticky-top navigation" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
@@ -69,11 +68,20 @@
 
                 <div class="navbar-end ml-0">
                     <div class="navbar-item py-0">
-                        <a href="${path1}/login.do" class="btn btn-sm btn-outline-primary ml-4"> 로그인 </a>
-                        <a href="${path1}/join.do" class="btn btn-sm btn-primary ml-4"> 회원가입 </a>
+                        <c:if test="${empty sid}">
+                            <a href="${path1}/member/login.do" class="btn btn-sm btn-outline-primary ml-4"> 로그인 </a>
+                            <a href="${path1}/member/term.do" class="btn btn-sm btn-primary ml-4"> 회원가입 </a>
+                        </c:if>
+                        <c:if test="${!empty sid and sid ne 'admin'}">
+                            <a href="${path1}/member/logout.do" class="btn btn-sm btn-outline-primary ml-4"> 로그아웃 </a>
+                            <a href="${path1}/" class="btn btn-sm btn-primary ml-4"> 마이페이지 </a>
+                        </c:if>
+                        <c:if test="${!empty sid and sid eq 'admin'}">
+                            <a href="${path1}/member/logout.do" class="btn btn-sm btn-outline-primary ml-4"> 로그아웃 </a>
+                            <a href="${path1}/" class="btn btn-sm btn-primary ml-4"> 관리자페이지 </a>
+                        </c:if>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-</header>

@@ -11,7 +11,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> 티스푼 </title>
-    <jsp:include page="./include/head.jsp"/>
+    <jsp:include page="./include/head.jsp"></jsp:include>
 </head>
 <body>
 <jsp:include page="./include/hd.jsp"></jsp:include>
