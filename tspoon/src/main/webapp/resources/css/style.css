@@ -117,7 +117,7 @@ dd {
 
 .btn-primary {
   background: #027BFB;
-  color: #fff;
+  color: #fff!important;
   border-color: #027BFB;
 }
 .btn-primary:active, .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary.active {

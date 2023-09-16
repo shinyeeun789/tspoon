@@ -16,7 +16,8 @@
 <!-- 파이어폭스, 오페라, 또는 구형 크롬/사파리 -->
 <link rel="icon" href="${path0}/resources/images/tspoon_logo.png" sizes="64x64">
 
-<!-- 폰트 -->
+<!-- 아이콘 -->
+<script src="https://kit.fontawesome.com/153ada4eea.js" crossorigin="anonymous"></script>
 
 <!-- mobile responsive meta -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

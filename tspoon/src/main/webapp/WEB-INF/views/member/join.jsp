@@ -84,9 +84,9 @@
                                 </div>
                             </div>
                             <div class="form-group column is-12-desktop">
-                                <label for="tel" class="label"> 주소 </label>
+                                <label for="addr2" class="label"> 주소 </label>
                                 <div class="control">
-                                    <input type="text" id="addr1" name="addr1" placeholder="기본 주소를  입력해주세요" class="input" autocomplete="off" readonly>
+                                    <input type="text" id="addr1" name="addr1" placeholder="기본 주소를 입력해주세요" class="input" autocomplete="off" readonly>
                                     <input type="text" id="addr2" name="addr2" placeholder="상세 주소를 입력해주세요" class="input mt-3" autocomplete="off" required>
                                     <div class="columns">
                                         <div class="column is-four-fifths mt-3">

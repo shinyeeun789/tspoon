@@ -4,12 +4,10 @@ import kr.co.teaspoon.dto.Member;
 import kr.co.teaspoon.service.MemberService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletRequest;
@@ -29,6 +27,8 @@ public class MemberController {
 
     @Autowired
     HttpSession session;
+
+    private BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 
     // 로그인 폼 로딩
     @GetMapping("login.do")
@@ -69,6 +69,7 @@ public class MemberController {
         return "/member/join";
     }
 
+    // 회원가입 
     @RequestMapping(value="join.do", method= RequestMethod.POST)
     public String joinPro(ServletRequest request, ServletResponse response, Model model) throws Exception {
         Member member = new Member();
@@ -86,6 +87,7 @@ public class MemberController {
         return "/member/login";
     }
 
+    // 아이디 중복 체크
     @RequestMapping(value = "idCheck.do", method = RequestMethod.POST)
     public void idCheck(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
         String id = request.getParameter("id");
@@ -106,14 +108,6 @@ public class MemberController {
         return "/member/memberList";
     }
 
-    /* 관리자가 회원의 상세 정보 보기 */
-    @GetMapping("detail.do")
-    public String detail(@RequestParam String id, Model model) throws Exception {
-        Member member = memberService.getMember(id);
-        model.addAttribute("member", member);
-        return "/member/memberDetail";
-    }
-
     @GetMapping("delete.do")
     public String memberDelete(HttpServletRequest request, Model model) throws Exception {
         String id = request.getParameter("id");
@@ -122,11 +116,22 @@ public class MemberController {
     }
 
     @GetMapping("edit.do")
-    public String memberEdit(HttpServletRequest request, Model model) throws Exception {
-        String id = request.getParameter("id");
+    public String editForm(Model model) throws Exception {
+        String id = (String) session.getAttribute("sid");
         Member member = memberService.getMember(id);
         model.addAttribute("member", member);
         return "/member/memberEdit";
+    }
+
+    @PostMapping("edit.do")
+    public String memberEdit(Member mem, @RequestParam String pw2, Model model) throws Exception {
+        if(mem.getPw() == null) {
+            mem.setPw(pw2);
+        } else {
+            mem.setPw(pwEncoder.encode(mem.getPw()));
+        }
+        memberService.memberEdit(mem);
+        return "redirect:mypage.do";
     }
 
     @RequestMapping(value="mypage.do", method=RequestMethod.GET)

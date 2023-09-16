@@ -1,84 +1,173 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="${pageContext.request.contextPath }" />
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="path1" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글 수정하기</title>
-    <!-- 헤드 부분 인클루드 -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>개인정보 변경</title>
     <jsp:include page="../include/head.jsp"></jsp:include>
+    </script>
 </head>
 <body>
-<div class="container is-fullhd">
-    <!-- 헤더 부분 인클루드 -->
-    <jsp:include page="../include/hd.jsp"></jsp:include>
+<jsp:include page="../include/hd.jsp"></jsp:include>
 
-    <div class="content" id="contents">
-        <div class="row column text-center">
-            <h2 class="h1">회원 정보 수정</h2>
-            <hr>
-            <div class="container">
-                <form action="${path1 }/board/edit.do" method="post">
-                    <table id="table1">
-                        <tbody>
-                        <tr>
-                            <th style="background-color:#dcdcdc">아이디</th>
-                            <td>
-                                <input type="text" name="id" id="id" class="input" value="${member.id }" readonly>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">비밀번호</th>
-                            <td>
-                                <input type="password" name="pw" id="pw" class="input" value="${member.pw }" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">이메일</th>
-                            <td>
-                                <input type="email" name="email" id="email" class="input" value="${member.email }" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">전화번호</th>
-                            <td>
-                                <input type="tel" name="tel" id="tel" class="input" value="${member.tel }" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">주소</th>
-                            <td>
-                                <input type="addr1" name="addr1" id="addr1" class="input" value="${member.addr1 }" required>
-                                <input type="addr2" name="addr2" id="addr2" class="input" value="${member.addr2 }" required>
-                                <input type="postcode" name="postcode" id="postcode" class="input" value="${member.postcode }" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">생년월일</th>
-                            <td>
-                                <input type="date" name="birth" id="birth" class="input" value="${member.birth }" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <input type="submit" class="submit success button" value="회원 정보 수정" >
-                                <a class="button" href="${path1 }/member/list.do">회원 목록</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </form>
+<!-- 배너 -->
+<section class="hero is-medium is-link">
+    <nav class="breadcrumb has-dot-separator ml-5 mt-5" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="${path1}/">
+                        <span class="icon is-small">
+                          <i class="fas fa-home" aria-hidden="true"></i>
+                        </span>
+                    <span> HOME </span>
+                </a>
+            </li>
+            <li>
+                <a href="${path1}/member/mypage.do">
+                        <span class="icon is-small">
+                          <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+                        </span>
+                    <span> 마이페이지 </span>
+                </a>
+            </li>
+            <li>
+                <a href="${path1}/member/edit.do">
+                        <span class="icon is-small">
+                          <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+                        </span>
+                    <span> 개인정보 변경 </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="hero-body">
+        <p class="title has-text-centered" style="margin-top:-40px">
+            개인정보 변경
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop is-justify-content-center">
+            <div class="column is-8-desktop">
+                <div class="p-6 content">
+                    <form action="${path1}/member/edit.do" method="post" onsubmit="return editCheck(this)">
+                        <div class="columns is-multiline">
+                            <div class="form-group column is-12-desktop">
+                                <label for="id"> 아이디 </label>
+                                <input type="text" class="input" id="id" name="id" value="${member.id}" readonly>
+                            </div>
+                            <div class="form-group column is-12-desktop">
+                                <label for="pw" class="label"> 비밀번호 </label>
+                                <div class="control">
+                                    <div class="columns">
+                                        <div class="column is-four-fifths">
+                                            <input type="password" id="pw" name="pw" placeholder="비밀번호 변경 버튼을 눌러 입력창을 활성화하세요" class="input"
+                                                   pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" minlength="8" maxlength="16" disabled>
+                                            <input type="hidden" id="pw2" name="pw2" value="${member.pw}">
+                                            <p id="pw_msg" style="color: red; font-size: 9pt" hidden> 비밀번호는 숫자, 영문, 특수문자를 1개 이상 포함한 8자리 이상 16자리 이하로 설정해주세요:) </p>
+                                        </div>
+                                        <div class="column">
+                                            <button type="button" class="button is-link is-fullwidth" onclick="activatePw()"> 비밀번호 변경 </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group column is-12-desktop">
+                                <label for="name" class="label"> 이름 </label>
+                                <div class="control">
+                                    <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" class="input" value="${member.name}" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group column is-12-desktop">
+                                <label for="email" class="label"> 이메일 </label>
+                                <div class="control">
+                                    <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요" class="input" value="${member.email}" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="form-group column is-12-desktop">
+                                <label for="tel" class="label"> 전화번호 </label>
+                                <div class="control">
+                                    <input type="tel" id="tel" name="tel" placeholder="전화번호를 입력해주세요" class="input" value="${member.tel}" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="form-group column is-12-desktop">
+                                <label for="addr2" class="label"> 주소 </label>
+                                <div class="control">
+                                    <input type="text" id="addr1" name="addr1" placeholder="기본 주소를 입력해주세요" class="input" value="${member.addr1}" autocomplete="off" readonly>
+                                    <input type="text" id="addr2" name="addr2" placeholder="상세 주소를 입력해주세요" class="input mt-3" value="${member.addr2}" autocomplete="off" required>
+                                    <div class="columns">
+                                        <div class="column is-four-fifths mt-3">
+                                            <div class="control">
+                                                <input type="text" id="postcode" name="postcode" placeholder="우편번호를 입력해주세요" value="${member.postcode}" class="input" autocomplete="off" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="column mt-3">
+                                            <button type="button" class="button is-link is-fullwidth" onclick="findAddr()"> 우편번호 검색 </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group column is-12-desktop">
+                                <label for="tel" class="label"> 생년월일 </label>
+                                <div class="control">
+                                    <input type="date" id="birth" name="birth" placeholder="생년월일을 입력해주세요" class="input" value="${member.birth}" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="column is-12 has-text-right">
+                                <button type="submit" class="btn btn-primary"> 개인정보 변경 </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <!-- 푸터 부분 인클루드 -->
-    <jsp:include page="../include/ft.jsp"></jsp:include>
-</div>
+</section>
+<script>
+    let state = true;
+    function activatePw() {
+        state = !state;
+        document.getElementById("pw").disabled = state;
+        document.getElementById("pw_msg").hidden = state;
+    }
+</script>
+<script>
+    function findAddr(){
+        new daum.Postcode({
+            oncomplete:function(data){
+                var roadAddr = data.roadAddress;
+                var jibunAddr = data.jibunAddress;
+                document.getElementById("postcode").value = data.zonecode;
+                if(roadAddr !== ''){
+                    document.getElementById("addr1").value = roadAddr;
+                } else if(jibunAddr !== ''){
+                    document.getElementById("addr1").value = jibunAddr;
+                }
+                document.getElementById("addr2").focus();
+            }
+        }).open();
+    }
+</script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<jsp:include page="../include/ft.jsp"/>
+
+<!-- plugins -->
+<script src="${path1}/resources/js/masonry.min.js"></script>
+<script src="${path1}/resources/js/clipboard.min.js"></script>
+<script src="${path1}/resources/js/jquery.matchHeight-min.js"></script>
+
+<!-- Main Script -->
+<script src="${path1}/resources/js/script.js"></script>
 </body>
 </html>

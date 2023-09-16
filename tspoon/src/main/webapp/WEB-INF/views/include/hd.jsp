@@ -62,6 +62,9 @@
                             <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
                                 FAQ
                             </a>
+                            <a class="navbar-item" href="${path1}/dataRoom/list.do">
+                                자료실
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +77,7 @@
                         </c:if>
                         <c:if test="${!empty sid and sid ne 'admin'}">
                             <a href="${path1}/member/logout.do" class="btn btn-sm btn-outline-primary ml-4"> 로그아웃 </a>
-                            <a href="${path1}/" class="btn btn-sm btn-primary ml-4"> 마이페이지 </a>
+                            <a href="${path1}/member/mypage.do" class="btn btn-sm btn-primary ml-4"> 마이페이지 </a>
                         </c:if>
                         <c:if test="${!empty sid and sid eq 'admin'}">
                             <a href="${path1}/member/logout.do" class="btn btn-sm btn-outline-primary ml-4"> 로그아웃 </a>
