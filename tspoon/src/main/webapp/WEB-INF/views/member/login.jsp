@@ -26,11 +26,11 @@
 <body>
 <jsp:include page="../include/hd.jsp"></jsp:include>
 
-<section class="section">
+<section class="section" style="background-image: url('${path1}/resources/images/bg-dots.png')">
     <div class="container">
         <div class="columns is-desktop is-justify-content-center">
             <div class="column is-8-desktop">
-                <div class="p-6 shadow rounded content">
+                <div class="p-6 bg-white shadow rounded content">
                     <h2 class="section-title"> Login </h2>
                     <form action="${path1}/member/login.do" method="post">
                         <div class="columns is-multiline">

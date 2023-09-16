@@ -52,6 +52,18 @@ public class MemberController {
         return "redirect:/";
     }
 
+    // 회원약관 화면 로딩
+    @GetMapping("term.do")
+    public String term(Model model) throws Exception {
+        return "/member/term";
+    }
+
+    // 회원가입 폼 로딩
+    @GetMapping("join.do")
+    public String join(Model model) throws Exception {
+        return "/member/join";
+    }
+
     /* 관리자가 볼 수 있는 회원 목록 */
     @RequestMapping(value="list.do", method=RequestMethod.GET)
     public String memberList(Model model) throws Exception {
