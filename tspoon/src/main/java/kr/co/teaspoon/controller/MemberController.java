@@ -2,6 +2,7 @@ package kr.co.teaspoon.controller;
 
 import kr.co.teaspoon.dto.Member;
 import kr.co.teaspoon.service.MemberService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.List;
 
 @Controller
@@ -62,6 +67,34 @@ public class MemberController {
     @GetMapping("join.do")
     public String join(Model model) throws Exception {
         return "/member/join";
+    }
+
+    @RequestMapping(value="join.do", method= RequestMethod.POST)
+    public String joinPro(ServletRequest request, ServletResponse response, Model model) throws Exception {
+        Member member = new Member();
+        member.setId(request.getParameter("id"));
+        member.setPw(request.getParameter("pw"));
+        member.setName(request.getParameter("name"));
+        member.setEmail(request.getParameter("email"));
+        member.setTel(request.getParameter("tel"));
+        member.setAddr1(request.getParameter("addr1"));
+        member.setAddr2(request.getParameter("addr2"));
+        member.setPostcode(request.getParameter("postcode"));
+        member.setBirth(request.getParameter("birth"));
+        memberService.memberInsert(member);
+
+        return "/member/login";
+    }
+
+    @RequestMapping(value = "idCheck.do", method = RequestMethod.POST)
+    public void idCheck(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+        String id = request.getParameter("id");
+        boolean result = memberService.idCheck(id);
+
+        JSONObject json = new JSONObject();
+        json.put("result", result);
+        PrintWriter out = response.getWriter();
+        out.println(json.toString());
     }
 
     /* 관리자가 볼 수 있는 회원 목록 */

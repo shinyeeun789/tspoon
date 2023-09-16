@@ -12,6 +12,5 @@ public interface MemberDAO {
     public void memberEdit(Member member) throws Exception;
     public void memberDelete(String id) throws Exception;
     public Member loginCheck(String id) throws Exception;
-    public Member login(String id) throws Exception;
 
 }

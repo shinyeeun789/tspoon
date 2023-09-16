@@ -33,6 +33,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void memberInsert(Member member) throws Exception {
+        member.setPw(pwEncoder.encode(member.getPw()));
         memberDAO.memberInsert(member);
     }
 
@@ -54,5 +55,10 @@ public class MemberServiceImpl implements MemberService {
             comp = true;
         }
         return comp;
+    }
+
+    @Override
+    public boolean idCheck(String id) throws Exception {
+        return memberDAO.getMember(id) == null ? true : false;
     }
 }
