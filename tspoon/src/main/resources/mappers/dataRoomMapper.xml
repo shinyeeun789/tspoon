@@ -55,6 +55,12 @@
         </selectKey>
     </insert>
 
+    <update id="dataRoomUpdate">
+        update dataRoom
+        set title=#{title}, content=#{content}
+        where articleNo = #{articleNo}
+    </update>
+
     <select id="dataRoomDetail" resultType="kr.co.teaspoon.dto.DataRoom">
         select * from dataRoom
         where articleNo = #{articleNo}

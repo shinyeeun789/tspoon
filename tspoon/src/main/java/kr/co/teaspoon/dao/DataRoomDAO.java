@@ -9,7 +9,7 @@ public interface DataRoomDAO {
     public List<DataRoom> dataRoomList(Page page) throws Exception;
     public int getCount(Page page) throws Exception;
     public void dataRoomInsert(DataRoom dataRoom) throws Exception;
-    public void fileInfoInsert(DataRoom dataRoom) throws Exception;
     public DataRoom dataRoomDetail(int articleNo) throws Exception;
+    public void dataRoomEdit(DataRoom dataRoom) throws Exception;
     public void dataRoomDelete(int articleNo) throws Exception;
 }

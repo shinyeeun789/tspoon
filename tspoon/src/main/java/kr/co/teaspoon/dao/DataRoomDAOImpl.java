@@ -30,13 +30,13 @@ public class DataRoomDAOImpl implements DataRoomDAO {
     }
 
     @Override
-    public void fileInfoInsert(DataRoom dataRoom) throws Exception {
-        sqlSession.insert("fileInfo.fileInfoInsert", dataRoom);
+    public DataRoom dataRoomDetail(int articleNo) throws Exception {
+        return sqlSession.selectOne("dataRoom.dataRoomDetail", articleNo);
     }
 
     @Override
-    public DataRoom dataRoomDetail(int articleNo) throws Exception {
-        return sqlSession.selectOne("dataRoom.dataRoomDetail", articleNo);
+    public void dataRoomEdit(DataRoom dataRoom) throws Exception {
+        sqlSession.update("dataRoom.dataRoomUpdate", dataRoom);
     }
 
     @Override

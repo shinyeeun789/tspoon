@@ -18,4 +18,10 @@
         select * from fileInfo
         where articleNo = #{articleNo}
     </select>
+
+    <!-- 파일 삭제 -->
+    <delete id="fileInfoDelete">
+        delete from fileInfo
+        where articleNo = #{articleNo}
+    </delete>
 </mapper>

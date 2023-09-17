@@ -61,8 +61,8 @@
                     <div class="columns buttons is-right">
                         <a href="${path}/dataRoom/list.do?page=${curPage}<c:if test="${!empty keyword}">&type=${type}&keyword=${keyword}</c:if>" class="button"> 목록 </a>
                         <c:if test="${sid eq 'admin'}">
-                            <a href="${path}/dataRoom/edit.do?no=${dataRoom.articleNo}" class="button"> 수정 </a>
-                            <a href="${path}/dataRoom/delete.do?no=${dataRoom.articleNo}" class="button"> 삭제 </a>
+                            <a href="${path}/dataRoom/edit.do?no=${dataRoom.articleNo}&page=${curPage}" class="button"> 수정 </a>
+                            <a href="${path}/dataRoom/delete.do?no=${dataRoom.articleNo}&page=${curPage}" class="button"> 삭제 </a>
                         </c:if>
                     </div>
                     <div class="columns">
@@ -79,7 +79,7 @@
                         </p>
                     </div>
                     <div class="columns">
-                        <textarea class="column textarea">${dataRoom.content}</textarea>
+                        <textarea class="column textarea has-fixed-size" col="30" rows="15">${dataRoom.content}</textarea>
                     </div>
                     <div class="columns">
                         <p class="column p-0 mt-5 mb-1">
@@ -89,7 +89,7 @@
                     <div class="columns mb-4">
                         <div class="column p-0">
                             <c:forEach var="file" items="${fileList}">
-                                <a href="${pageContext.request.contextPath}/resources/upload/dataRoom/${file.saveFolder}/${file.saveFile}" download="${file.originFile }"><i class="fas fa-file" style="color: #54c066;"></i> ${file.originFile }</a>
+                                <a href="${pageContext.request.contextPath}/resources/upload/dataRoom/${file.saveFolder}/${file.saveFile}" download="${file.originFile }" class="mr-3"><i class="fas fa-file" style="color: #54c066;"></i> ${file.originFile }</a>
                             </c:forEach>
                         </div>
                     </div>

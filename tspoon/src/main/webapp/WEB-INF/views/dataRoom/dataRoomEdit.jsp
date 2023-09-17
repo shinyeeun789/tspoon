@@ -37,18 +37,18 @@
                 </a>
             </li>
             <li>
-                <a href="${path}/dataRoom/insert.do">
+                <a href="${path}/dataRoom/edit.do">
                         <span class="icon is-small">
                           <i class="fa-solid fa-table-list" aria-hidden="true"></i>
                         </span>
-                    <span> 자료 등록 </span>
+                    <span> 자료 수정 </span>
                 </a>
             </li>
         </ul>
     </nav>
     <div class="hero-body">
         <p class="title has-text-centered" style="margin-top:-40px">
-            자료실 글 작성
+            자료실 글 수정
         </p>
     </div>
 </section>
@@ -58,15 +58,19 @@
         <div class="columns is-desktop is-justify-content-center">
             <div class="column is-8-desktop">
                 <div class="p-6 bg-white shadow rounded content">
-                    <form action="${path1}/dataRoom/insert.do" method="post" enctype="multipart/form-data">
+                    <form action="${path1}/dataRoom/edit.do" method="post" enctype="multipart/form-data">
                         <div class="columns is-multiline">
                             <div class="form-group column is-12">
                                 <label for="title"> 제목 </label>
-                                <input type="text" class="input" id="title" name="title" placeholder="제목을 입력해주세요" autocomplete="off" autofocus required>
+                                <input type="text" class="input" id="title" name="title" placeholder="제목을 입력해주세요" autocomplete="off" value="${dataRoom.title}" autofocus required>
+                                <input type="hidden" id="articleNo" name="articleNo" value="${dataRoom.articleNo}">
+                                <input type="hidden" id="page" name="page" value="${curPage}">
+                                <input type="hidden" id="type" name="type" value="${type}">
+                                <input type="hidden" id="keyword" name="keyword" value="${keyword}">
                             </div>
                             <!-- 내용 입력 부분 -->
                             <div class="form-group column is-12">
-                                <textarea name="content" id="content" class="textarea has-fixed-size" cols="30" rows="20" placeholder="내용을 입력해주세요" required></textarea>
+                                <textarea name="content" id="content" class="textarea has-fixed-size" placeholder="내용을 입력해주세요" required>${dataRoom.content}</textarea>
                             </div>
                             <!-- 파일 선택 부분 -->
                             <div class="form-group column is-8">
@@ -86,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="column is-4 has-text-right">
-                                <button type="submit" class="btn btn-primary"> 작성하기 </button>
+                                <button type="submit" class="btn btn-primary"> 수정하기 </button>
                             </div>
                         </div>
                     </form>
