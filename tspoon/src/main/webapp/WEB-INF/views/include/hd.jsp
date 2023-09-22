@@ -33,11 +33,11 @@
                         </div>
                     </div>
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link is-arrowless" href="https://bulma.io/documentation/overview/start/">
+                        <a class="navbar-link is-arrowless" href="${path1}/board/list.do">
                             커뮤니티
                         </a>
                         <div class="navbar-dropdown is-boxed">
-                            <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                            <a class="navbar-item" href="${path1}/board/list.do">
                                 자유게시판
                             </a>
                             <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">

@@ -295,6 +295,20 @@
       <version>2.3.0</version>
     </dependency>
 
+    <!-- simple json 추가 -->
+    <dependency>
+      <groupId>org.apache.clerezza.ext</groupId>
+      <artifactId>org.json.simple</artifactId>
+      <version>0.4</version>
+    </dependency>
+
+    <!-- 음력 달력 -->
+    <dependency>
+      <groupId>com.ibm.icu</groupId>
+      <artifactId>icu4j</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>pro03</finalName>

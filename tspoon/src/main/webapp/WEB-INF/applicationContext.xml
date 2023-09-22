@@ -44,6 +44,8 @@
         <context:annotation-config />
         <bean id="boardService" class="kr.co.teaspoon.service.BoardServiceImpl" />
         <bean id="boardDAO" class="kr.co.teaspoon.dao.BoardDAOImpl" />
+        <bean id="commentService" class="kr.co.teaspoon.service.CommentServiceImpl" />
+        <bean id="commentDAO" class="kr.co.teaspoon.dao.CommentDAOImpl" />
         <bean id="dataRoomService" class="kr.co.teaspoon.service.DataRoomServiceImpl" />
         <bean id="dataRoomDAO" class="kr.co.teaspoon.dao.DataRoomDAOImpl" />
         <bean id="fileInfoService" class="kr.co.teaspoon.service.FileInfoServiceImpl" />

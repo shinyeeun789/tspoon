@@ -1,6 +1,9 @@
 package kr.co.teaspoon.dao;
 
 import kr.co.teaspoon.dto.Board;
+import kr.co.teaspoon.dto.BoardVO;
+import kr.co.teaspoon.dto.Category;
+import kr.co.teaspoon.util.Page;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,12 +17,12 @@ public class BoardDAOImpl implements BoardDAO {
     private SqlSession sqlSession;
 
     @Override
-    public List<Board> boardList() throws Exception {
-        return sqlSession.selectList("board.boardList");
+    public List<BoardVO> boardList(Page page) throws Exception {
+        return sqlSession.selectList("board.boardList", page);
     }
 
     @Override
-    public Board boardDetail(int seq) throws Exception {
+    public BoardVO boardDetail(int seq) throws Exception {
         sqlSession.update("board.countUp", seq);
         return sqlSession.selectOne("board.boardDetail", seq);
     }
@@ -37,5 +40,15 @@ public class BoardDAOImpl implements BoardDAO {
     @Override
     public void boardEdit(Board dto) throws Exception {
         sqlSession.update("board.boardUpdate", dto);
+    }
+
+    @Override
+    public List<Category> categories() throws Exception {
+        return sqlSession.selectList("board.categories");
+    }
+
+    @Override
+    public int getCount(Page page) throws Exception {
+        return sqlSession.selectOne("board.getCount", page);
     }
 }

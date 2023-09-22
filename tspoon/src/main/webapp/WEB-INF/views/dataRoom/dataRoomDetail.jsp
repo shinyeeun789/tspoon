@@ -17,7 +17,7 @@
 <jsp:include page="../include/hd.jsp"></jsp:include>
 
 <!-- 배너 -->
-<section class="hero is-medium is-link">
+<section class="hero is-medium" style="background-image: url('${path}/resources/images/pageHeader.jpg'); background-size: cover; background-position: top;">
     <nav class="breadcrumb has-dot-separator ml-5 mt-5" aria-label="breadcrumbs">
         <ul>
             <li>
@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="${path}/dataRoom/list.do">
+                <a href="#">
                         <span class="icon is-small">
                           <i class="fa-solid fa-table-list" aria-hidden="true"></i>
                         </span>
@@ -47,8 +47,11 @@
         </ul>
     </nav>
     <div class="hero-body">
-        <p class="title has-text-centered" style="margin-top:-40px">
+        <p class="title has-text-centered has-text-white" style="margin-top:-40px; text-shadow: 1px 1px 10px #333">
             자료 상세 보기
+        </p>
+        <p class="subtitle has-text-centered has-text-white">
+            원하는 자료를 간편하게 찾아보세요!
         </p>
     </div>
 </section>

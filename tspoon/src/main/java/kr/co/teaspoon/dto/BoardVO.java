@@ -3,9 +3,9 @@ package kr.co.teaspoon.dto;
 import lombok.Data;
 
 @Data
-public class Board {
+public class BoardVO {
     private int seq;
-    private String cate;
+    private String cateName;
     private String title;
     private String content;
     private String nickname;
