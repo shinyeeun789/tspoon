@@ -44,6 +44,12 @@
         <context:annotation-config />
         <bean id="boardService" class="kr.co.teaspoon.service.BoardServiceImpl" />
         <bean id="boardDAO" class="kr.co.teaspoon.dao.BoardDAOImpl" />
+        <bean id="noticeService" class="kr.co.teaspoon.service.NoticeServiceImpl"/>
+        <bean id="noticeDAO" class="kr.co.teaspoon.dao.NoticeDAOImpl"/>
+        <bean id="faqService" class="kr.co.teaspoon.service.FaqServiceImpl"/>
+        <bean id="faqDAO" class="kr.co.teaspoon.dao.FaqDAOImpl"/>
+        <bean id="qnaService" class="kr.co.teaspoon.service.QnaServiceImpl"/>
+        <bean id="qnaDAO" class="kr.co.teaspoon.dao.QnaDAOImpl"/>
         <bean id="commentService" class="kr.co.teaspoon.service.CommentServiceImpl" />
         <bean id="commentDAO" class="kr.co.teaspoon.dao.CommentDAOImpl" />
         <bean id="dataRoomService" class="kr.co.teaspoon.service.DataRoomServiceImpl" />
@@ -52,6 +58,8 @@
         <bean id="fileInfoDAO" class="kr.co.teaspoon.dao.FileInfoDAOImpl" />
         <bean id="memberService" class="kr.co.teaspoon.service.MemberServiceImpl" />
         <bean id="memberDAO" class="kr.co.teaspoon.dao.MemberDAOImpl" />
+        <bean id="attendanceService" class="kr.co.teaspoon.service.AttendanceServiceImpl"/>
+        <bean id="attendanceDAO" class="kr.co.teaspoon.dao.AttendanceDAOImpl"/>
 
         <!-- @Transactional 어노테이션 처리 -->
         <tx:annotation-driven transaction-manager="transactionManager" />

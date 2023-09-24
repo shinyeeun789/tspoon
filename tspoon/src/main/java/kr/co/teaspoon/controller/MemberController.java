@@ -42,6 +42,7 @@ public class MemberController {
         boolean ps = memberService.loginCheck(id, pw);
         if(ps){
             session.setAttribute("sid", id);
+            memberService.updateVisited(id);
             rttr.addFlashAttribute("msg", 1);
             return "redirect:/";
         } else {

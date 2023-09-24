@@ -1,6 +1,7 @@
 package kr.co.teaspoon.dao;
 
 import kr.co.teaspoon.dto.Member;
+import kr.co.teaspoon.dto.MemberPtVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -51,5 +52,15 @@ public class MemberDAOImpl implements MemberDAO {
     @Override
     public Member loginCheck(String id) throws Exception {
         return sqlSession.selectOne("member.loginCheck", id);
+    }
+
+    @Override
+    public void updateVisited(String id) throws Exception {
+        sqlSession.update("member.updateVisited", id);
+    }
+
+    @Override
+    public void updatePt(MemberPtVO data) throws Exception {
+        sqlSession.update("member.updatePt", data);
     }
 }

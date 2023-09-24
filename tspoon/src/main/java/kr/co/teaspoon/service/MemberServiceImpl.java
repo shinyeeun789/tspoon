@@ -58,6 +58,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public void updateVisited(String id) throws Exception {
+        memberDAO.updateVisited(id);
+    }
+
+    @Override
     public boolean idCheck(String id) throws Exception {
         return memberDAO.getMember(id) == null ? true : false;
     }

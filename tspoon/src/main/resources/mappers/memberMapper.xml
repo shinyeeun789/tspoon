@@ -31,4 +31,14 @@
     <delete id="memberDelete">
         delete from member where id=#{id}
     </delete>
+    <!-- 포인트 획득! -->
+    <update id="updatePt">
+        update member set pt=pt+#{pt}
+        where id=#{id}
+    </update>
+    <!-- 방문수 업데이트 -->
+    <update id="updateVisited">
+        update member set visited=visited+1
+        where id=#{id}
+    </update>
 </mapper>

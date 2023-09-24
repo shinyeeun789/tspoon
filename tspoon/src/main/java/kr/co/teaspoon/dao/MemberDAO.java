@@ -1,6 +1,7 @@
 package kr.co.teaspoon.dao;
 
 import kr.co.teaspoon.dto.Member;
+import kr.co.teaspoon.dto.MemberPtVO;
 
 import java.util.List;
 
@@ -12,5 +13,7 @@ public interface MemberDAO {
     public void memberEdit(Member member) throws Exception;
     public void memberDelete(String id) throws Exception;
     public Member loginCheck(String id) throws Exception;
+    public void updateVisited(String id) throws Exception;
+    public void updatePt(MemberPtVO data) throws Exception;
 
 }
