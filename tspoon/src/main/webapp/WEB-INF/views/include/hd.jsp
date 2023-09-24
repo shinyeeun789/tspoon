@@ -61,6 +61,9 @@
                         서비스
                     </a>
                     <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="${path1}/event/list.do">
+                            이벤트
+                        </a>
                         <a class="navbar-item" href="${path1}/">
                             우리아이 급식표
                         </a>

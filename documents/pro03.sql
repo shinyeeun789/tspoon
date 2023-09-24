@@ -153,6 +153,55 @@ CREATE TABLE attendance (
    id VARCHAR(20),
    attend DATE DEFAULT current_date);
 
-DELETE FROM attendance;
+/* 이벤트 글 테이블 */
+CREATE TABLE event (
+	eno int  PRIMARY KEY AUTO_INCREMENT,
+   title VARCHAR(100) NOT NULL,
+   content VARCHAR(1000) NOT NULL,
+   STATUS VARCHAR(5) CHECK(status IN(0, 1)),
+   sdate DATE,
+   edate DATE,
+   author VARCHAR(16),
+   regdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   cnt INT DEFAULT 0 NOT NULL
+);
 
-SELECT ano, a.id AS id, attend, visited FROM attendance a JOIN member m ON(a.id = m.id)
+-- 이벤트 더미데이터 생성
+INSERT INTO event 
+VALUES(DEFAULT, '육아에 지친 당신에게 치맥을 드립니다','<p><img alt="" src="/tspoon_war/event/ckImgSubmit.do?uid=5bf93a98-739e-48a1-88e3-734558e69c37&amp;fileName=제목을-입력해주세요_-001.png" style="height:800px; width:800px" /></p>', 1, 20230920,20230930,'admin', '2023-09-20', DEFAULT);
+INSERT INTO EVENT 
+VALUES(DEFAULT, '풍성한 가을 이벤트','<p><img alt="" src="/tspoon_war/event/ckImgSubmit.do?uid=3b137af7-771f-4674-8c0e-d194bff4bae7&amp;fileName=제목을 입력해주세요_-001.png" style="height:1587px; width:1123px"/></p>', 1, 20230921,20231021,'admin', '2023-09-20', DEFAULT);
+
+
+-- 회원의 이벤트 접수
+create table apply(
+   appno int AUTO_INCREMENT PRIMARY KEY,		/* 접수 번호 */
+   eno int not NULL,									/* 이벤트글 번호 */
+   id varchar(100) not NULL,						/* 당첨자 아이디 */
+   name varchar(100) not NULL,					/* 당첨자 이름 */
+   tel varchar(13),									/* 전화번호 */
+   foreign key(eno) references event(eno) on delete cascade,
+   FOREIGN KEY(id) references member(id) on delete CASCADE);
+
+-- 당첨자 리스트
+create table winnerList(
+   appno int auto_increment primary key not null,			
+   eno int not NULL,										
+   id varchar(100) not NULL,										
+   name varchar(100) not NULL,						
+   tel varchar(13),													
+   foreign key(eno) references event(eno) on delete cascade,
+   FOREIGN key(id) references member(id) on delete cascade);
+
+SELECT * FROM winnerList;
+
+
+--당첨자 발표 글
+create table winner(
+	wno int primary key AUTO_INCREMENT,			/* 당첨글 번호 */
+   eno int not NULL,									/* 이벤트 글 번호 */
+   title varchar(100),								/* 글 제목 */
+   content varchar(1000),							/* 글 내용 */
+   author varchar(100),								/* 작성자 */
+   resdate datetime default CURRENT_TIMESTAMP,	/* 작성일 */
+   FOREIGN key(eno) references event(eno));

@@ -3,6 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path1" value="${pageContext.request.contextPath}" />
+<c:if test="${not empty cookie.userID}">
+    <c:set value="checked" var="checked" />
+</c:if>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +39,18 @@
                         <div class="columns is-multiline">
                             <div class="form-group column is-12-desktop">
                                 <label for="id"> 아이디 </label>
-                                <input type="text" class="input" id="id" name="id" placeholder="아이디를 입력해주세요" autocomplete="off" autofocus required>
+                                <input type="text" class="input" id="id" name="id" placeholder="아이디를 입력해주세요" value="${cookie.userID.value}" autocomplete="off" autofocus required>
                             </div>
                             <div class="form-group column is-12-desktop">
                                 <label for="pw"> 비밀번호 </label>
                                 <input type="password" class="input" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" required>
                                 <p id="msg" class="mt-3" style="color: red"></p>
+                            </div>
+                            <div class="form-group column is-12-desktop pt-0">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="saveId" value="save" ${checked}>
+                                    아이디 기억하기
+                                </label>
                             </div>
                             <div class="column is-12 has-text-right">
                                 <button type="submit" class="btn btn-primary"> 로그인 </button>

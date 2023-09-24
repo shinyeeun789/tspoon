@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="path1" value="${pageContext.request.contextPath}" />
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +18,11 @@
 <jsp:include page="../include/hd.jsp"></jsp:include>
 
 <!-- 배너 -->
-<section class="hero is-medium is-link">
+<section class="hero is-medium" style="background-image: url('${path}/resources/images/pageHeader.jpg'); background-size: cover; background-position: top;">
     <nav class="breadcrumb has-dot-separator ml-5 mt-5" aria-label="breadcrumbs">
         <ul>
             <li>
-                <a href="${path1}/">
+                <a href="${path}/" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fas fa-home" aria-hidden="true"></i>
                         </span>
@@ -30,17 +30,17 @@
                 </a>
             </li>
             <li>
-                <a href="${path1}/member/mypage.do">
-                        <span class="icon is-small">
-                          <i class="fa-solid fa-table-list" aria-hidden="true"></i>
-                        </span>
+                <a href="${path}/member/mypage.do" class="has-text-white">
+                    <span class="icon is-small">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
                     <span> 마이페이지 </span>
                 </a>
             </li>
             <li>
-                <a href="${path1}/member/edit.do">
+                <a href="${path}/member/edit.do" class="has-text-white">
                         <span class="icon is-small">
-                          <i class="fa-solid fa-table-list" aria-hidden="true"></i>
+                          <i class="fa-solid fa-pen-to-square"></i>
                         </span>
                     <span> 개인정보 변경 </span>
                 </a>
@@ -48,8 +48,11 @@
         </ul>
     </nav>
     <div class="hero-body">
-        <p class="title has-text-centered" style="margin-top:-40px">
+        <p class="title has-text-centered has-text-white" style="margin-top:-40px; text-shadow: 1px 1px 10px #333">
             개인정보 변경
+        </p>
+        <p class="subtitle has-text-centered has-text-white">
+            개인정보를 간편하게 관리하세요
         </p>
     </div>
 </section>
@@ -59,7 +62,7 @@
         <div class="columns is-desktop is-justify-content-center">
             <div class="column is-8-desktop">
                 <div class="p-6 content">
-                    <form action="${path1}/member/edit.do" method="post" onsubmit="return editCheck(this)">
+                    <form action="${path}/member/edit.do" method="post" onsubmit="return editCheck(this)">
                         <div class="columns is-multiline">
                             <div class="form-group column is-12-desktop">
                                 <label for="id"> 아이디 </label>
@@ -163,11 +166,11 @@
 <jsp:include page="../include/ft.jsp"/>
 
 <!-- plugins -->
-<script src="${path1}/resources/js/masonry.min.js"></script>
-<script src="${path1}/resources/js/clipboard.min.js"></script>
-<script src="${path1}/resources/js/jquery.matchHeight-min.js"></script>
+<script src="${path}/resources/js/masonry.min.js"></script>
+<script src="${path}/resources/js/clipboard.min.js"></script>
+<script src="${path}/resources/js/jquery.matchHeight-min.js"></script>
 
 <!-- Main Script -->
-<script src="${path1}/resources/js/script.js"></script>
+<script src="${path}/resources/js/script.js"></script>
 </body>
 </html>

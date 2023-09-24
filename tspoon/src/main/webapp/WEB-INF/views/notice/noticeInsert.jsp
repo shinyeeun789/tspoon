@@ -42,9 +42,9 @@
             </li>
             <li>
                 <a href="${path}/notice/insert.do" class="has-text-white">
-                        <span class="icon is-small">
-                          <i class="fa-solid fa-circle-info"></i>
-                        </span>
+                    <span class="icon is-small">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </span>
                     <span> 공지사항 글 등록 </span>
                 </a>
             </li>
