@@ -35,18 +35,26 @@
                 </a>
             </li>
             <li>
-                <a href="${path}/admin/eventMgmt.do" class="has-text-white">
+                <a href="${path}/admin/selectWinner.do" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fa-solid fa-gift"></i>
                         </span>
-                    <span> 이벤트 관리 </span>
+                    <span> 당첨자 추첨 </span>
+                </a>
+            </li>
+            <li>
+                <a href="${path}/admin/winnerList.do" class="has-text-white">
+                        <span class="icon is-small">
+                          <i class="fa-regular fa-rectangle-list"></i>
+                        </span>
+                    <span> 당첨자 목록 </span>
                 </a>
             </li>
         </ul>
     </nav>
     <div class="hero-body">
         <p class="title has-text-centered has-text-white" style="margin-top:-40px; text-shadow: 1px 1px 10px #333">
-            이벤트 관리
+            당첨자 목록
         </p>
         <p class="subtitle has-text-centered has-text-white">
             안녕하세요, 관리자님
@@ -82,8 +90,8 @@
                         <li>
                             <a href="${path}/admin/eventMgmt.do">이벤트</a>
                             <ul>
-                                <li><a href="${path}/admin/eventMgmt.do" class="is-active">이벤트 관리</a></li>
-                                <li><a href="${path}/admin/selectWinner.do">당첨자 추첨</a></li>
+                                <li><a href="${path}/admin/eventMgmt.do">이벤트 관리</a></li>
+                                <li><a href="${path}/admin/selectWinner.do" class="is-active">당첨자 추첨</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -94,36 +102,32 @@
                     <thead>
                     <tr>
                         <th width="80" class="has-text-centered">#</th>
-                        <th class="has-text-centered">제목</th>
-                        <th width="150" class="has-text-centered">시작일</th>
-                        <th width="150" class="has-text-centered">종료일</th>
-                        <th width="150" class="has-text-centered">상태</th>
-                        <th width="100" class="has-text-centered">비고</th>
+                        <th class="has-text-centered">아이디</th>
+                        <th width="150" class="has-text-centered">이름</th>
+                        <th width="150" class="has-text-centered">전화번호</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="event" items="${eventList}">
-                        <tr onclick="javascript: location.href='${path}/event/detail.do?eno=${event.eno}&page=${curPage}<c:if test="${!empty page.keyword}">&type=${page.type}&keyword=${page.keyword}</c:if>'" class="has-text-centered" style="cursor: pointer">
-                            <td style="line-height: 85px"> ${event.eno} </td>
-                            <td style="line-height: 85px"> ${event.title} </td>
-                            <c:if test='${event.status eq "1"}'>
-                                <td class="has-text-centered" style="line-height: 83px"><span class="tag is-success is-light is-medium">진행 중</span></td>
-                            </c:if>
-                            <c:if test='${event.status eq "0"}'>
-                                <td class="has-text-centered" style="line-height: 83px"><span class="tag is-danger is-light is-medium">종료</span></td>
-                            </c:if>
-                            <td style="line-height: 85px"> ${event.sdate} </td>
-                            <td style="line-height: 85px"> ${event.edate} </td>
-                            <td><a href="${path}/admin/eventDelete.do?id=${event.eno}" class="button is-danger is-fullwidth mt-5">삭제</a></td>
+                    <c:forEach items="${winners }" var="winner">
+                        <tr>
+                            <td>${winner.appno }</td>
+                            <td>${winner.id }</td>
+                            <td>${winner.name }</td>
+                            <td>${winner.tel }</td>
                         </tr>
                     </c:forEach>
-                    <c:if test="${empty eventList}">
+                    <c:if test="${empty winners}">
                         <tr>
-                            <td colspan="6" class="has-text-centered"> 작성된 이벤트가 없습니다. </td>
+                            <td colspan="5" class="has-text-centered"> 이벤트에 신청한 회원이 없습니다 :) </td>
                         </tr>
                     </c:if>
                     </tbody>
                 </table>
+                <c:if test="${!empty winners}">
+                    <div class="buttons is-right">
+                        <a href="${path}/admin/insertWinner.do?eno=${winners.get(0).eno}" class="button btn-primary"> 당첨자 공지글 작성 </a>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>

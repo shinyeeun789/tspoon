@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li>
-                <a href="${path}/admin/memberList.do" class="has-text-white">
+                <a href="${path}/admin/filterInsert.do" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fa-solid fa-square-plus"></i>
                         </span>

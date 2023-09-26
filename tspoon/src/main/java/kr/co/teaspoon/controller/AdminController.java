@@ -40,6 +40,9 @@ public class AdminController {
     @Autowired
     private FilterWordService filterWordService;
 
+    @Autowired
+    private WinnerService winnerService;
+
     @RequestMapping("dashboard.do")
     public String dashboard(Model model) throws Exception {
         // 회원 수
@@ -220,6 +223,30 @@ public class AdminController {
         model.addAttribute(ongoingEvents);
 
         return "/admin/selectWinner";
+    }
+
+    @RequestMapping("winnerList.do")
+    public String winnerList(@RequestParam int eno, Model model) throws Exception {
+        List<WinnerDetail> winners = winnerService.winners(eno);
+        model.addAttribute("winners", winners);
+        return "/admin/winnerList";
+    }
+
+    @RequestMapping("insertWinner.do")
+    public String insertWinner(@RequestParam int eno, Model model) throws Exception {
+        List<WinnerDetail> winners = winnerService.winners(eno);
+        for (WinnerDetail winner : winners) {
+            String firstName = winner.getName().substring(0,1);
+            String lastName = winner.getName().substring(2,3);
+            winner.setName(firstName+"*"+lastName);
+            winner.setId(winner.getId().substring(0, winner.getId().length()-2) + "***");
+        }
+        model.addAttribute("winners", winners);
+
+        Event event = eventService.eventDetail(eno);
+        model.addAttribute("event", event);
+
+        return "/admin/insertWinner";
     }
 
 }

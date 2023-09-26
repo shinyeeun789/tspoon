@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="path" value="${pageContext.request.contextPath}" />
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +13,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> 관리자 </title>
     <jsp:include page="../include/head.jsp"></jsp:include>
-    <c:if test="${!empty msg}">
-        <script>
-            alert(`${msg} 회원을 강퇴시켰습니다`);
-        </script>
-    </c:if>
+    <script type="text/javascript" src="${path}/resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <jsp:include page="../include/hd.jsp"></jsp:include>
 
 <!-- 배너 -->
-<section class="hero is-medium" style="background-image: url('${path}/resources/images/pageHeader.jpg'); background-size: cover; background-position: top;">
+<section class="hero is-medium"
+         style="background-image: url('${path}/resources/images/pageHeader.jpg'); background-size: cover; background-position: top;">
     <nav class="breadcrumb has-dot-separator ml-5 mt-5" aria-label="breadcrumbs">
         <ul>
             <li>
@@ -42,11 +39,19 @@
                     <span> 당첨자 추첨 </span>
                 </a>
             </li>
+            <li>
+                <a href="${path}/admin/winnerList.do" class="has-text-white">
+                        <span class="icon is-small">
+                          <i class="fa-regular fa-rectangle-list"></i>
+                        </span>
+                    <span> 당첨자 발표 글 작성 </span>
+                </a>
+            </li>
         </ul>
     </nav>
     <div class="hero-body">
         <p class="title has-text-centered has-text-white" style="margin-top:-40px; text-shadow: 1px 1px 10px #333">
-            당첨자 추첨
+            당첨자 발표 글 작성
         </p>
         <p class="subtitle has-text-centered has-text-white">
             안녕하세요, 관리자님
@@ -90,47 +95,48 @@
                 </aside>
             </div>
             <div class="column is-9">
-                <table class="table is-hoverable is-fullwidth has-text-centered">
-                    <thead>
-                    <tr>
-                        <th width="80" class="has-text-centered">#</th>
-                        <th class="has-text-centered">제목</th>
-                        <th width="150" class="has-text-centered">시작일</th>
-                        <th width="150" class="has-text-centered">종료일</th>
-                        <th width="100" class="has-text-centered">비고</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="event" items="${eventList}">
-                        <tr onclick="javascript: location.href='${path}/event/detail.do?eno=${event.eno}&page=${curPage}<c:if test="${!empty page.keyword}">&type=${page.type}&keyword=${page.keyword}</c:if>'" class="has-text-centered" style="cursor: pointer">
-                            <td> ${event.eno} </td>
-                            <td> ${event.title} </td>
-                            <td> ${event.sdate} </td>
-                            <td> ${event.edate} </td>
-                            <td><a href="${path}/admin/winnerList.do?eno=${event.eno}" class="button btn-primary is-small is-fullwidth">당첨자 추첨</a></td>
-                        </tr>
-                    </c:forEach>
-                    <c:if test="${empty eventList}">
-                        <tr>
-                            <td colspan="6" class="has-text-centered"> 현재 진행 중인 이벤트가 없습니다. </td>
-                        </tr>
-                    </c:if>
-                    </tbody>
-                </table>
+                <form action="${path }/winner/insert.do" method="post">
+                    <div class="columns is-multiline">
+                        <div class="form-group column is-12">
+                            <label for="title"> 제목 </label>
+                            <input type="text" name="title" id="title" placeholder="제목 입력" maxlength="98" class="input" value="${event.title} 당첨자 발표" required>
+                            <input type="hidden" name="eno" id="eno" value="${event.eno}">
+                        </div>
+                        <div class="form-group column is-12">
+                            <textarea name="content" id="content" class="textarea" placeholder="내용 입력" rows="8" cols="100" maxlength="1400" required>
+<table border="1" cellpadding="1" cellspacing="1" style="width:100%; text-align:center">
+    <thead>
+        <tr><td>#</td><td>아이디</td><td>이름</td></tr>
+    </thead>
+    <tbody>
+                            <c:forEach var="winner" items="${winners}" varStatus="status">
+        <tr><td>${status.index}</td><td>${winner.id}</td><td>${winner.name}</td></tr>
+                            </c:forEach>
+    </tbody>
+</table>
+축하드립니다! 당첨자분들께는 개별적으로 연락드려 상세한 안내를 드리겠습니다.
+                            </textarea>
+                            <script>
+                                CKEDITOR.replace('content', {filebrowserUploadUrl: '${path}/winner/imageUpload.do'});
+                            </script>
+                        </div>
+                        <c:if test='${sid eq "admin"}'>
+                            <div class="form-group column is-12">
+                                <div class="buttons is-right mb-100">
+                                    <input type="submit" class="button btn-primary" value="등록">
+                                </div>
+                            </div>
+                        </c:if>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </section>
 
+<!-- 푸터 영역 시작 -->
 <jsp:include page="../include/ft.jsp"/>
-
-<!-- plugins -->
-<script src="${path}/resources/js/masonry.min.js"></script>
-<script src="${path}/resources/js/clipnotice.min.js"></script>
-<script src="${path}/resources/js/jquery.matchHeight-min.js"></script>
-
-<!-- Main Script -->
-<script src="${path}/resources/js/script.js"></script>
+<!-- 푸터 영역 끝 -->
 
 </body>
 </html>

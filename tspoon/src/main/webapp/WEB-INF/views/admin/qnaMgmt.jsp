@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="${path}/admin/memberList.do" class="has-text-white">
+                <a href="${path}/admin/qnaMgmt.do" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fa-solid fa-circle-question"></i>
                         </span>

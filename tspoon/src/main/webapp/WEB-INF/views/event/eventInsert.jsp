@@ -127,7 +127,7 @@
     </div>
 </section>
 
-<!-- 푸터 영영 시작 -->
+<!-- 푸터 영역 시작 -->
 <jsp:include page="../include/ft.jsp"/>
 <!-- 푸터 영역 끝 -->
 
