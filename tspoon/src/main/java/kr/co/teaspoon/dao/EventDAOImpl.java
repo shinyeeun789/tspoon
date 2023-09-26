@@ -51,4 +51,9 @@ public class EventDAOImpl implements EventDAO{
     public List<Event> ongoingEvents() throws Exception {
         return sqlSession.selectList("event.ongoingEvents");
     }
+
+    @Override
+    public List<Event> ongoingEvents(Page page) throws Exception {
+        return sqlSession.selectList("event.ongoingEventsWithPage", page);
+    }
 }

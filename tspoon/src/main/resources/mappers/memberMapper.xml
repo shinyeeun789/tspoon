@@ -12,7 +12,7 @@
         select * from member where id=#{id}
     </select>
     <!-- 회원 수 카운트 -->
-    <select id="memberCount" resultType="integer">
+    <select id="memberCnt" resultType="integer">
         select count(*) from member
     </select>
     <!-- 로그인 : DAO에서 처리 -->
@@ -41,4 +41,10 @@
         update member set visited=visited+1
         where id=#{id}
     </update>
+    <!-- 월별 회원 수와 출석체크 수 조회 -->
+    <select id="adminChart" resultType="kr.co.teaspoon.dto.AdminChartVO">
+        SELECT if(regMonth IS NULL,attendMonth,regMonth) AS label, if(memberCnt IS NULL,0,memberCnt) AS memberCnt, if(attendCnt IS NULL,0,attendCnt) AS attendCnt FROM memberMonth AS m LEFT JOIN attendanceMonth AS a ON m.regMonth = a.attendMonth
+        UNION
+        SELECT if(regMonth IS NULL,attendMonth,regMonth) AS label, if(memberCnt IS NULL,0,memberCnt) AS memberCnt, if(attendCnt IS NULL,0,attendCnt) AS attendCnt FROM memberMonth AS m RIGHT JOIN attendanceMonth AS a ON m.regMonth = a.attendMonth
+    </select>
 </mapper>

@@ -1,5 +1,6 @@
 package kr.co.teaspoon.dao;
 
+import kr.co.teaspoon.dto.AdminChartVO;
 import kr.co.teaspoon.dto.Member;
 import kr.co.teaspoon.dto.MemberPtVO;
 import org.apache.ibatis.session.SqlSession;
@@ -30,8 +31,8 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public int memberCount() throws Exception {
-        return sqlSession.selectOne("member.memberCount");
+    public int memberCnt() throws Exception {
+        return sqlSession.selectOne("member.memberCnt");
     }
 
     @Override
@@ -62,5 +63,10 @@ public class MemberDAOImpl implements MemberDAO {
     @Override
     public void updatePt(MemberPtVO data) throws Exception {
         sqlSession.update("member.updatePt", data);
+    }
+
+    @Override
+    public List<AdminChartVO> adminChart() throws Exception {
+        return sqlSession.selectList("member.adminChart");
     }
 }

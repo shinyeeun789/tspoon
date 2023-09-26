@@ -48,4 +48,9 @@ public class EventServiceImpl implements EventService {
     public List<Event> ongoingEvents() throws Exception {
         return eventDAO.ongoingEvents();
     }
+
+    @Override
+    public List<Event> ongoingEvents(Page page) throws Exception {
+        return eventDAO.ongoingEvents(page);
+    }
 }

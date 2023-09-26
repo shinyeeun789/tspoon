@@ -65,7 +65,7 @@
                             이벤트
                         </a>
                         <a class="navbar-item" href="${path1}/">
-                            우리아이 급식표
+                            급식표
                         </a>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     </c:if>
                     <c:if test="${!empty sid and sid eq 'admin'}">
                         <a href="${path1}/member/logout.do" class="btn btn-sm btn-outline-primary ml-4"> 로그아웃 </a>
-                        <a href="${path1}/" class="btn btn-sm btn-primary ml-4"> 관리자페이지 </a>
+                        <a href="${path1}/admin/dashboard.do" class="btn btn-sm btn-primary ml-4"> 관리자페이지 </a>
                     </c:if>
                 </div>
             </div>

@@ -10,6 +10,7 @@ import java.util.List;
 public interface BoardService {
     public List<BoardVO> boardList(Page page) throws Exception;
     public int getCount(Page page) throws Exception;
+    public int boardCnt() throws Exception;
     public BoardVO boardDetail(int seq) throws Exception;
     public void boardInsert(Board dto) throws Exception;
     public void boardDelete(int seq) throws Exception;

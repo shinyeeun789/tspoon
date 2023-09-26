@@ -46,12 +46,55 @@ CREATE TABLE board(
   	FOREIGN KEY(nickname) REFERENCES member(id) ON DELETE CASCADE
 );
 
-INSERT INTO board(title, content, nickname) VALUES('샘플 글 제목1입니다.', '샘플 글 내용1입니다.', '닉네임');
-INSERT INTO board(title, content, nickname) VALUES('샘플 글 제목2입니다.', '샘플 글 내용2입니다.', '닉네임');
-INSERT INTO board(title, content, nickname) VALUES('샘플 글 제목3입니다.', '샘플 글 내용3입니다.', '닉네임');
-INSERT INTO board(title, content, nickname) VALUES('샘플 글 제목4입니다.', '샘플 글 내용4입니다.', '닉네임');
-INSERT INTO board(title, content, nickname) VALUES('샘플 글 제목5입니다.', '샘플 글 내용5입니다.', '닉네임');
-INSERT INTO board(title, content, nickname) VALUES('샘플 글 제목6입니다.', '샘플 글 내용6입니다.', '닉네임');
+/* 자유게시판 더미데이터 */
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('A', '요즘 나만 느끼는 일상 이야기 🌼', '안녕하세요! 요즘 일상에서 느끼는 이런 저런 생각들을 나눌 수 있는 자리가 필요해서 이렇게 글을 써봅니다. 평범한 일상에서 느껴지는 작은 기쁨부터 고민, 궁금증까지 다양한 이야기들을 나눠봐요. 함께 이야기 나누면서 조금 더 나를 알아가고 싶어요. 여러분의 이야기도 기대해요! 🌸', 'shinname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('A', '먹는 즐거움, 나만의 맛 여행 🍜', '안녕하세요, 맛집 탐험가로 떠나는 나만의 맛 여행 이야기를 공유하려고 합니다! 맛있는 음식을 찾아 나날이 다양한 식도락을 즐기며, 그 맛에 빠져보는 나만의 여정을 담아봅니다. 맛있는 음식과 함께 나누는 추억, 그 무엇도 대신할 수 없는 행복이에요. 같이 맛있는 이야기 나누어봐요!', 'parkname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('A', '취미를 통한 나만의 작은 행복 💫', ' 안녕하세요! 취미 생활을 통해 나만의 작은 행복을 찾아가는 여정을 나누고 싶어요. 그림 그리기, 음악 연주, 독서, 등산, 무엇이든지 제게 특별한 순간을 선사하는 취미들을 통해 일상의 소소한 기쁨을 느끼고 있어요. 여러분의 취미와 나누고 싶은 경험이 있다면 언제든지 말씀해주세요!', 'shinname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('A', '감성을 담아 풀어내는 나만의 시간 🌌', '안녕하세요, 여기는 감성의 풍부한 이야기들을 나눌 수 있는 공간입니다. 나만의 감정을 시를 통해 표현하고, 일상의 감동을 나누며 마음을 편하게 풀어보려고 합니다. 시를 통해 나만의 감성을 표현하는 순간들을 함께해요. 여러분의 감성적인 이야기도 함께 들려주세요.', 'parkname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('A', '여행이야기, 세상을 누비다 🌏', '안녕하세요! 여행을 통해 세계 각지에서 느낀 감동과 경험을 공유하고 싶어서 글을 씁니다. 다양한 나라와 문화를 경험하며 얻은 인상적인 이야기들을 담아봐요. 여행이 주는 새로운 시야와 경험을 통해 나만의 세계를 만들어나가는 여정을 함께 나누어봐요! 🌍', 'kimname1');
+
+/* 교육정보 게시판 더미데이터 */
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('B', '똑똑해지자! 유용한 학습 정보 공유 📚', '안녕하세요! 이 공간은 학습과 교육에 관한 다양한 정보를 공유하고 함께 성장하는 공간입니다. 학교 공부에서 시작해서 취미로 꾸준히 배우는 것, 또는 현실에서 유용한 기술까지 학습과 관련된 모든 주제를 다룰 예정이에요. 함께 배워가며 더 똑똑해지는 여정에 동참해보세요!', 'shinname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('B', '직업을 위한 교육과 전문 지식 공유 🌟', '안녕하세요! 여기는 다양한 직업을 위한 교육 정보와 전문 지식을 공유하는 공간입니다. 각 분야의 전문가들이 직업과 관련된 유용한 정보, 교육 경로, 취업 준비 팁 등을 나누어드리며, 여러분의 꿈을 향한 첫 걸음을 함께 응원하고 지원해드릴게요. 함께 멋진 직업을 향해 나아가요!', 'kimname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('B', '부모님을 위한 교육 안내 및 조언 🏫', '안녕하세요, 부모님을 위한 교육 관련 정보를 나누는 공간입니다. 자녀의 교육과 관련된 궁금증, 교육 방법, 학교 선택, 학습 도구 소개부터 아이들의 성장과 관련된 다양한 이야기들을 함께 공유하고 상담할 수 있는 공간이에요. 부모님들의 이야기를 기다리고 있어요!', 'parkname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('B', '효과적인 학습 방법과 꿀팁 공유 🎓', '안녕하세요, 학습을 더욱 효과적으로 하는 방법과 유용한 꿀팁들을 나누고자 하는 공간입니다. 학교에서 공부하는 것부터 개인적으로 공부하는 방법, 집중력 향상을 위한 습관 등 학습과 관련된 다양한 정보들을 함께 공유하고 배워가는 시간을 가지고자 합니다. 함께 공부해요!', 'kimname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('B', '학교 생활, 스트레스 극복 팁 공유 🌈', '안녕하세요! 학교 생활에서 느끼는 스트레스를 극복하고 즐겁게 보내기 위한 꿀팁을 공유하는 공간입니다. 공부와 여가를 잘 조절하며, 친구 관계에서의 고민, 시험 스트레스 해소법 등 학교 생활에서 도움이 될만한 다양한 정보를 나누어보려고 해요!', 'kimname1');
+
+/* 교재/학원 추천 게시판 더미데이터 */
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('C', '최고의 교재와 학원 찾아봐요! 📚', '안녕하세요! 이곳은 다양한 학습 교재와 학원을 추천해주고 정보를 공유하는 공간입니다. 어떤 분야든 궁금하신 거라면 언제든 물어보세요. 현직 전문가들이 검증한 교재나 효과적인 학원을 함께 찾아보며, 학습에 필요한 최고의 도구를 찾아보아요. 함께 공부의 즐거움을 느껴봐요!', 'admin');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('C', '꿀팁으로 찾는 당신에게 딱 맞는 학원! 🌟', '안녕하세요! 이곳은 학원 선택에 도움을 주는 꿀팁과 추천 정보를 공유하는 공간입니다. 당신의 목표와 맞는 학원을 찾기 위한 실용적인 조언들을 나누며, 다양한 분야의 교육 기관을 추천해드립니다. 함께 성장하는 학습의 즐거움을 찾아봐요!', 'kimname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('C', '전문가가 추천하는 교재와 학원 모음 📖', '안녕하세요! 이곳에서는 각 분야 전문가들이 추천하는 교재와 학원을 소개해드리고, 그에 대한 리뷰와 효과적인 학습 방법을 공유하고자 합니다. 당신의 학습 목표를 향한 첫걸음을 떼기 위한 좋은 정보들이 기다리고 있어요. 함께 더 나은 미래를 위한 교육을 찾아봐요!', 'parkname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('C', '학습의 길목, 교재와 학원 추천 모음 🌼', '안녕하세요! 학습의 길목에서 가장 중요한 것은 바로 교재와 학원의 선택입니다. 여기에서는 각 분야의 교재와 학원을 공부하는 전문가들의 추천과 의견을 모아봤어요. 당신의 학습에 도움이 될 최고의 도구들을 찾아보며, 함께 좋은 선택을 해나가요!', 'shinname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('C', '나만의 학습 방식에 맞는 교재와 학원 찾기 🚀', '안녕하세요! 각자의 학습 방식과 목표에 따라 적합한 교재와 학원을 찾는 것은 매우 중요합니다. 이곳에서는 당신의 학습 스타일에 맞는 교재와 학원을 추천하고, 다양한 이야기와 경험을 나누며 최적의 선택을 찾아나가는 공간이에요. 함께 나만의 학습 길을 찾아보아요!', 'kimname1');
+
+/* 진로상담 커뮤니티 더미데이터 */
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('D', '미래를 그리는 진로상담 친구들 🚀', '안녕하세요! 이 곳은 당신의 미래를 함께 그리고 상담해주는 공간입니다. 진로에 관한 고민, 궁금증, 희망 등 모든 것을 자유롭게 나누고 고민을 함께 나눌 수 있는 친구들이 여기에 있어요. 함께 당신만의 꿈과 목표를 향해 나아가봐요. 당신의 미래를 응원합니다!', 'admin');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('D', '꿈을 향한 진로탐색 여행 🌠', '안녕하세요! 여기는 당신의 꿈을 찾아가기 위한 진로탐색 여행지입니다. 어떤 진로를 선택해야 할지 망설이고 있다면 함께 여행하며 당신의 강점, 흥미, 가치관을 찾아보아요. 꿈을 향한 여정에서 당신에게 맞는 길을 찾을 수 있도록 도와드릴게요!', 'shinname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('D', '나만의 길을 찾는 진로상담 모임 🌱', '안녕하세요! 이곳은 나만의 길을 찾고자 하는 당신을 위한 진로상담 모임입니다. 다양한 진로에 대한 이야기, 성장하는 과정에서의 고민, 앞으로의 목표를 나누며 함께 더 나은 미래를 향해 나아갈 수 있도록 도움을 드릴게요. 나만의 진로를 찾는 여정, 함께해요!', 'shinname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('D', '청춘의 선택, 진로에 대한 이야기 🌈', '안녕하세요! 청춘의 선택인 진로에 대해 이야기 나누는 공간입니다. 다양한 진로 선택, 진로에 대한 고민, 준비 과정에서의 이슈들을 나누며 함께 당신에게 맞는 길을 찾아가봐요. 우리 모두 함께 꿈을 향해 달려봅시다!', 'kimname1');
+INSERT INTO board(cate, title, content, nickname)
+VALUES ('D', '진로 여행을 떠나는 항해 모임 ⛵', '안녕하세요! 우리는 당신의 진로 여행을 함께 항해할 동료입니다. 함께 세계 여행처럼 다양한 진로를 탐험하며, 당신의 역량과 흥미를 발견해보아요. 진로에 대한 이야기, 정보, 충고 등을 나누며 당신의 항해를 응원하고 지원할 준비가 되어있어요! 함께 떠나볼까요? ⚓', 'admin');
+
+SELECT * FROM board;
 
 -- 커뮤니티 댓글 테이블 생성
 CREATE TABLE COMMENT(
@@ -120,13 +163,13 @@ CREATE TABLE qna(
   lev INT DEFAULT 0, 									-- 질문(0), 답변(1)
   par INT DEFAULT 0,													-- 질문(자신 레코드의 qno), 답변(질문의 글번호)
   FOREIGN KEY(author) REFERENCES member(id) ON DELETE CASCADE);
-SELECT * FROM qna;
+
 -- QNA 테이블 더미데이터 생성
-INSERT INTO	qna VALUES(DEFAULT, '가입하고 싶어요','웹사이트에 어떻게 가입하나요?','kimname1',DEFAULT, DEFAULT, 1);
+INSERT INTO	qna VALUES(DEFAULT, '가입하고 싶어요','웹사이트에 어떻게 가입하나요?','leename1',DEFAULT, DEFAULT, 1);
 INSERT INTO	qna VALUES(DEFAULT, '[답변] 가입하고 싶어요',' 회원 가입 페이지에서 필요한 정보를 입력하여 가입할 수 있습니다.','admin',DEFAULT, 1, 1);
-INSERT INTO	qna VALUES(DEFAULT, '개인 정보 업데이트하고 싶어요','회원 정보를 어떻게 수정하거나 업데이트하나요?','kimname1',DEFAULT, DEFAULT, 2);
+INSERT INTO	qna VALUES(DEFAULT, '개인 정보 업데이트하고 싶어요','회원 정보를 어떻게 수정하거나 업데이트하나요?','leename1',DEFAULT, DEFAULT, 2);
 INSERT INTO	qna VALUES(DEFAULT, '[답변] 개인 정보 업데이트하고 싶어요',' 로그인 후, 마이페이지에서 회원 정보를 수정하고 업데이트할 수 있습니다.','admin',DEFAULT, 1, 2);
-INSERT INTO	qna VALUES(DEFAULT, '커뮤니티 어떻게 사용해요?','게시물을 작성하는 방법을 알려주세요.','kimname1',DEFAULT, DEFAULT, 3);
+INSERT INTO	qna VALUES(DEFAULT, '커뮤니티 어떻게 사용해요?','게시물을 작성하는 방법을 알려주세요.','leename1',DEFAULT, DEFAULT, 3);
 INSERT INTO	qna VALUES(DEFAULT, '[답변] 커뮤니티 어떻게 사용해요?',' 커뮤니티 페이지에서 카테고리를 설정한 후 글을 작성해주세요. 글의 하단에는 댓글을 추가할 수 있는 공간도 있습니다. 글과 댓글을 작성하면서 정보를 공유하세요','admin',DEFAULT, 1, 3);
 
 -- 업로드 된 파일 정보 테이블 생성
@@ -205,3 +248,16 @@ create table winner(
    author varchar(100),								/* 작성자 */
    resdate datetime default CURRENT_TIMESTAMP,	/* 작성일 */
    FOREIGN key(eno) references event(eno));
+
+-- 관리자 페이지 출석 및 회원 수 뷰 생성
+CREATE VIEW memberMonth AS SELECT concat(year(regdate),' ', month(regdate)) AS regMonth, COUNT(*) AS memberCnt FROM member GROUP BY year(regdate), month(regdate) ORDER BY YEAR(regdate), MONTH(regdate) LIMIT 6;
+CREATE VIEW attendanceMonth AS SELECT CONCAT(YEAR(attend), ' ', MONTH(attend)) AS attendMonth,  COUNT(*) AS attendCnt FROM attendance GROUP BY YEAR(attend), MONTH(attend) ORDER BY YEAR(attend), MONTH(attend) LIMIT 6;
+
+
+-- 필터링 단어 테이블 생성
+CREATE TABLE filterWord(
+   fno INT PRIMARY KEY AUTO_INCREMENT,
+   word VARCHAR(100) NOT NULL
+);
+
+select * from filterword;

@@ -75,4 +75,8 @@
     <select id="categories" resultType="kr.co.teaspoon.dto.Category">
         select * from category
     </select>
+
+    <select id="boardCnt" resultType="integer">
+        select count(*) from board
+    </select>
 </mapper>

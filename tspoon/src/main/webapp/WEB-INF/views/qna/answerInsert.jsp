@@ -67,6 +67,16 @@
         <div class="columns is-desktop is-justify-content-center">
             <div class="column is-8-desktop">
                 <div class="p-6 bg-white shadow rounded content">
+                    <div class="mb-40">
+                        <div class="form-group column is-12">
+                            <label for="questionTitle"> 질문 제목 </label>
+                            <input type="text" id="questionTitle" class="input" value="${detail.title}" readonly>
+                        </div>
+                        <div class="form-group column is-12">
+                            <label for="questionContent"> 질문 내용 </label>
+                            <textarea id="questionContent" cols="30" rows="10" class="textarea">${detail.content}</textarea>
+                        </div>
+                    </div>
                     <form action="${path}/qna/answerInsert.do" method="post">
                         <div class="columns is-multiline">
                             <div class="form-group column is-12">
