@@ -50,7 +50,7 @@
 
 <!-- 이벤트 영역 시작 -->
 <div class="container">
-    <div class="tabs is-centered mt-6">
+    <div class="tabs is-centered is-boxed mt-6">
         <ul>
             <li class="is-active">
                 <a href="${path}/event/list.do">

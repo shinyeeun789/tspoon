@@ -50,7 +50,7 @@
 
 <!-- 당첨자 목록 영역 시작 -->
 <div class="container">
-    <div class="tabs is-centered mt-6">
+    <div class="tabs is-centered is-boxed mt-6">
         <ul>
             <li>
                 <a href="${path}/event/list.do">

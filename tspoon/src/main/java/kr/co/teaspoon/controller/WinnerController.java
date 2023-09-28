@@ -56,6 +56,7 @@ public class WinnerController {
         int wno = Integer.parseInt(request.getParameter("wno"));
         Winner detail = winnerService.winnerDetail(wno);
         model.addAttribute("detail", detail);
+        model.addAttribute("curPage", request.getParameter("page"));
         return "/winner/winnerDetail";
     }
     

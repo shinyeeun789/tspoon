@@ -50,7 +50,7 @@
 
 <section class="section">
     <div class="container">
-        <div class="tabs is-centered">
+        <div class="tabs is-boxed is-centered">
             <ul>
                 <li>
                     <a href="${path}/attendance/check.do">
