@@ -393,9 +393,11 @@
 #### 📷 View
 <img src="https://github.com/shinyeeun789/tspoon/assets/70800414/14b07c92-75c8-45a4-9bb8-1f5a6e6ae875" width="1300">
 
+<br><br>
+
 ### 13. 자료실
 - 자료실 글 목록, 상세보기, 글 등록, 글 수정, 글 삭제 기능 구현
 - 파일 업로드 기능 구현
 - 파일 업로드 시 여러 개의 파일 업로드 가능
 #### 📷 View
-<img src="https://github.com/shinyeeun789/tspoon/assets/70800414/14b07c92-75c8-45a4-9bb8-1f5a6e6ae875" width="1300">
+<img src="https://github.com/shinyeeun789/tspoon/assets/70800414/c6d3892e-c178-411b-80a3-50367a9897d6" width="1300">
