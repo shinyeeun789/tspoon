@@ -73,29 +73,27 @@
 
 <section class="section">
 	<div class="container">
-		<div class="container">
-			<ul class="faqlist mb-100" style="list-style: none;">
-				<c:if test="${!empty faqList}">
-					<c:forEach items="${faqList }" var="faq" varStatus="status">
-						<li class="mb-10">
-							<div class="message-header">${faq.question }</div>
-							<div class="message-body mb-30" style="background-color: rgb(245,245,245);">${faq.answer }</div>
-						</li>
-					</c:forEach>
-				</c:if>
-				<c:if test="${empty faqList}">
-					<div class="has-text-centered"> FAQ가 없습니다. </div>
-				</c:if>
-			</ul>
-			<script>
-				$(document).ready(function(){
-					$(".faqlist li").click(function(){
-						$(this).find(".message-body").slideToggle(500);
-						$(this).find(".message-header").toggleClass("on");
-					});
+		<ul class="faqlist mb-100" style="list-style: none;">
+			<c:if test="${!empty faqList}">
+				<c:forEach items="${faqList }" var="faq" varStatus="status">
+					<li class="mb-10">
+						<div class="message-header">${faq.question }</div>
+						<div class="message-body mb-30" style="background-color: rgb(245,245,245);">${faq.answer }</div>
+					</li>
+				</c:forEach>
+			</c:if>
+			<c:if test="${empty faqList}">
+				<div class="has-text-centered"> FAQ가 없습니다. </div>
+			</c:if>
+		</ul>
+		<script>
+			$(document).ready(function(){
+				$(".faqlist li").click(function(){
+					$(this).find(".message-body").slideToggle(500);
+					$(this).find(".message-header").toggleClass("on");
 				});
-			</script>
-		</div>
+			});
+		</script>
 	</div>
 </section>
 <!-- FAQ 영역 끝-->

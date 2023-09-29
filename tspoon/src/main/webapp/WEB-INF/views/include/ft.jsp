@@ -8,9 +8,9 @@
         <div class="columns is-multiline is-align-items-center border-bottom py-5">
             <div class="column is-4-desktop is-12-tablet">
                 <ul class="list-inline footer-menu has-text-centered has-text-left-desktop">
-                    <li class="list-inline-item"><a href="changelog.html"> 회사 소개 </a></li>
-                    <li class="list-inline-item"><a href="contact.html"> 커뮤니티 </a></li>
-                    <li class="list-inline-item"><a href="search.html"> 고객지원 </a></li>
+                    <li class="list-inline-item"><a href="${path1}/introduce/company.do"> 회사 소개 </a></li>
+                    <li class="list-inline-item"><a href="${path1}/board/list.do"> 커뮤니티 </a></li>
+                    <li class="list-inline-item"><a href="${path1}/notice/list.do"> 고객지원 </a></li>
                 </ul>
             </div>
             <div class="column is-4-desktop is-12-tablet">

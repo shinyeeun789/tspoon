@@ -33,7 +33,7 @@
                 </div>
             </figure>
             <div class="card-content has-text-centered">
-                <h4 class="mb-10"> 빈틈을 채워나가는 마지막 실전 연습 </h4>
+                <h4 class="mb-10"> [수능 완성] 빈틈을 채워나가는 마지막 실전 연습 </h4>
             </div>
         </div>
     </div>

@@ -24,10 +24,10 @@
                         소개
                     </a>
                     <div class="navbar-dropdown is-boxed">
-                        <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                        <a class="navbar-item" href="${path1}/introduce/company.do">
                             티스푼 소개
                         </a>
-                        <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                        <a class="navbar-item" href="${path1}/introduce/directions.do">
                             오시는 길
                         </a>
                     </div>
@@ -50,10 +50,6 @@
                                 출석체크
                             </a>
                         </c:if>
-                        <hr class="dropdown-divider">
-                        <a class="navbar-item" href="${path1}/news/list.do">
-                            교육뉴스
-                        </a>
                     </div>
                 </div>
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -64,8 +60,8 @@
                         <a class="navbar-item" href="${path1}/event/list.do">
                             이벤트
                         </a>
-                        <a class="navbar-item" href="${path1}/">
-                            급식표
+                        <a class="navbar-item" href="${path1}/news/list.do">
+                            교육뉴스
                         </a>
                     </div>
                 </div>
