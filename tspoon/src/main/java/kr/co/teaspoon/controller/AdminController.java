@@ -227,6 +227,12 @@ public class AdminController {
         return "/admin/selectWinner";
     }
 
+    @RequestMapping("eventDelete.do")
+    public String eventDelete(@RequestParam int eno, Model model) throws Exception {
+        eventService.eventDelete(eno);
+        return "redirect:/admin/eventMgmt.do";
+    }
+
     @RequestMapping("winnerList.do")
     public String winnerList(@RequestParam int eno, Model model) throws Exception {
         List<WinnerDetail> winners = winnerService.winners(eno);

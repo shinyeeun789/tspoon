@@ -26,7 +26,7 @@
     <nav class="breadcrumb has-dot-separator ml-5 mt-5" aria-label="breadcrumbs">
         <ul>
             <li>
-                <a href="${path}/">
+                <a href="${path}/" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fas fa-home" aria-hidden="true"></i>
                         </span>
@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="${path}/dataRoom/list.do" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fa-solid fa-table-list" aria-hidden="true"></i>
                         </span>

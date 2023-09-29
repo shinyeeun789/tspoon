@@ -192,7 +192,7 @@ public class BoardController {
     @RequestMapping(value="ckImgSubmit.do")
     public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //서버에 저장된 이미지 경로
-        String path = "D:\\github\\project3\\tspoon\\src\\main\\webapp\\resources\\upload\\board/";	// 이미지 경로 설정
+        String path = "D:\\github\\project03\\tspoon\\src\\main\\webapp\\resources\\upload\\board/";	// 이미지 경로 설정
         //String path = request.getRealPath("/resource/uploadckImage/");
         String sDirPath = path + uid + "_" + fileName;
 

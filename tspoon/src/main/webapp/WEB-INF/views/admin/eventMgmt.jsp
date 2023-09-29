@@ -13,11 +13,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> 관리자 </title>
     <jsp:include page="../include/head.jsp"></jsp:include>
-    <c:if test="${!empty msg}">
-        <script>
-            alert(`${msg} 회원을 강퇴시켰습니다`);
-        </script>
-    </c:if>
 </head>
 <body>
 <jsp:include page="../include/hd.jsp"></jsp:include>
@@ -114,7 +109,7 @@
                             </c:if>
                             <td style="line-height: 85px"> ${event.sdate} </td>
                             <td style="line-height: 85px"> ${event.edate} </td>
-                            <td><a href="${path}/admin/eventDelete.do?id=${event.eno}" class="button is-danger is-fullwidth mt-5">삭제</a></td>
+                            <td><a href="${path}/admin/eventDelete.do?eno=${event.eno}" class="button is-danger is-fullwidth mt-5">삭제</a></td>
                         </tr>
                     </c:forEach>
                     <c:if test="${empty eventList}">

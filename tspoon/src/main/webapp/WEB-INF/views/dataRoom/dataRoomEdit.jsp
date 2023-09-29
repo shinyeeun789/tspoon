@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="path1" value="${pageContext.request.contextPath}" />
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
     <nav class="breadcrumb has-dot-separator ml-5 mt-5" aria-label="breadcrumbs">
         <ul>
             <li>
-                <a href="${path}/">
+                <a href="${path}/" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fas fa-home" aria-hidden="true"></i>
                         </span>
@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="${path}/dataRoom/list.do" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fa-solid fa-table-list" aria-hidden="true"></i>
                         </span>
@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a href="${path}/dataRoom/edit.do">
+                <a href="${path}/dataRoom/edit.do" class="has-text-white">
                         <span class="icon is-small">
                           <i class="fa-solid fa-file" aria-hidden="true"></i>
                         </span>
@@ -61,7 +61,7 @@
         <div class="columns is-desktop is-justify-content-center">
             <div class="column is-8-desktop">
                 <div class="p-6 bg-white shadow rounded content">
-                    <form action="${path1}/dataRoom/edit.do" method="post" enctype="multipart/form-data">
+                    <form action="${path}/dataRoom/edit.do" method="post" enctype="multipart/form-data">
                         <div class="columns is-multiline">
                             <div class="form-group column is-12">
                                 <label for="title"> 제목 </label>
@@ -106,12 +106,12 @@
 <jsp:include page="../include/ft.jsp"/>
 
 <!-- plugins -->
-<script src="${path1}/resources/js/masonry.min.js"></script>
-<script src="${path1}/resources/js/clipboard.min.js"></script>
-<script src="${path1}/resources/js/jquery.matchHeight-min.js"></script>
+<script src="${path}/resources/js/masonry.min.js"></script>
+<script src="${path}/resources/js/clipboard.min.js"></script>
+<script src="${path}/resources/js/jquery.matchHeight-min.js"></script>
 
 <!-- Main Script -->
-<script src="${path1}/resources/js/script.js"></script>
+<script src="${path}/resources/js/script.js"></script>
 
 <!-- 파일 입력 요소 변경 시 파일 이름 표시 -->
 <script>

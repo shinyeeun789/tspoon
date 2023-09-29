@@ -3,6 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path1" value="${pageContext.request.contextPath}" />
+
+<!-- date input의 최소값 구하기 -->
+<c:set var="minYear" value="<%=new java.util.Date().getYear() + 1881%>"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,13 +102,12 @@
                                             <button type="button" class="button is-link is-fullwidth" onclick="findAddr()"> 우편번호 검색 </button>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="form-group column is-12-desktop">
                                 <label for="tel" class="label"> 생년월일 </label>
                                 <div class="control">
-                                    <input type="date" id="birth" name="birth" placeholder="생년월일을 입력해주세요" class="input" autocomplete="off" required>
+                                    <input type="date" id="birth" name="birth" max="${minYear}-12-31" placeholder="생년월일을 입력해주세요" class="input" autocomplete="off" required>
                                 </div>
                             </div>
 
