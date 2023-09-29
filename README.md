@@ -365,11 +365,15 @@
 - 뉴스 페이지를 크롤링하여 교육 뉴스 목록 출력
 - 교육 뉴스 클릭 시 해당 뉴스 페이지로 이동
 #### 📷 View
-<img src="" width="1300">
+<img src="https://github.com/shinyeeun789/tspoon/assets/70800414/f604b464-0196-4340-ae05-4f6da5afffb5" width="1300">
 
 <br><br>
 
 ### 10. 공지사항
+- 공지사항 글 목록, 상세보기, 글 등록, 글 수정, 글 삭제 기능 구현
+- 관리자만 글 등록, 수정, 삭제 가능
+#### 📷 View
+<img src="https://github.com/shinyeeun789/tspoon/assets/70800414/f5de4d4a-a02e-4276-8b1c-5056d609830f" width="1300">
 
 <br><br>
 
@@ -383,3 +387,15 @@
 <br><br>
 
 ### 12. FAQ
+- FAQ 글 목록 화면 구현
+- FAQ 글의 목록은 동적으로 구현
+- 답변은 토글 방식으로 볼 수 있도록 구현
+#### 📷 View
+<img src="https://github.com/shinyeeun789/tspoon/assets/70800414/14b07c92-75c8-45a4-9bb8-1f5a6e6ae875" width="1300">
+
+### 13. 자료실
+- 자료실 글 목록, 상세보기, 글 등록, 글 수정, 글 삭제 기능 구현
+- 파일 업로드 기능 구현
+- 파일 업로드 시 여러 개의 파일 업로드 가능
+#### 📷 View
+<img src="https://github.com/shinyeeun789/tspoon/assets/70800414/14b07c92-75c8-45a4-9bb8-1f5a6e6ae875" width="1300">
