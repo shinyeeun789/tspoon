@@ -24,7 +24,7 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("/dataRoom/*")
-public class DataRoomController {
+public class  DataRoomController {
 
     @Autowired
     private DataRoomService dataRoomService;

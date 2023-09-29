@@ -29,6 +29,9 @@ public class AdminController {
     private MemberService memberService;
 
     @Autowired
+    private ApplyService applyService;
+
+    @Autowired
     private BoardService boardService;
 
     @Autowired
@@ -54,8 +57,7 @@ public class AdminController {
         model.addAttribute("boardCnt", boardCnt);
 
         // 이벤트 참여자 수
-//        int applyCnt = applyService.applyCnt();
-        int applyCnt = 0;
+        int applyCnt = applyService.applyCnt();
         model.addAttribute("applyCnt", applyCnt);
 
         // 미답변 질문 수

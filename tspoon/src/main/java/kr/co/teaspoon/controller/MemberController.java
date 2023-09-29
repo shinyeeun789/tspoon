@@ -21,7 +21,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/member/*")
-public class MemberController {
+public class  MemberController {
 
     @Autowired
     private MemberService memberService;
