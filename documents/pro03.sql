@@ -130,7 +130,6 @@ INSERT INTO notice VALUES (DEFAULT,'커뮤니티 참여와 활동 방법 안내'
 INSERT INTO notice VALUES (DEFAULT,'커뮤니티에서의 예의와 배려 안내','티스푼은 모두가 존중받고 행복한 환경을 만들기 위해 예의와 배려가 중요합니다. 다른 회원들을 존중하고 따뜻한 마음으로 소통하실 것을 부탁드립니다. 함께하는 커뮤니티를 만들어 나가는 데 도움을 주신다면 감사하겠습니다.','admin',DEFAULT, DEFAULT);
 INSERT INTO notice VALUES (DEFAULT,'커뮤니티에서의 긍정적인 기여에 대한 감사','티스푼은 모든 회원 여러분의 긍정적인 기여에 큰 감사를 드립니다. 각자의 의견과 경험이 모여 더 풍성한 커뮤니티를 만들 수 있습니다. 앞으로도 함께 나눔과 협력을 통해 더욱 발전된 커뮤니티를 만들어 나가시길 바랍니다.','admin',DEFAULT, DEFAULT);
 INSERT INTO notice VALUES (DEFAULT,'커뮤니티에서의 소중한 순간들을 기록하는 방법 안내','티스푼에서의 소중한 순간들을 기록하고 나누는 방법에 대한 안내입니다. 회원들 각자의 소중한 순간들을 공유하여 함께 기뻐하고 나누어주세요.','admin',DEFAULT, DEFAULT);
-
 INSERT INTO notice VALUES (DEFAULT,'커뮤니티 내에서의 정보 무단 유출에 대한 주의 안내','티스푼에서의 정보 무단 유출에 대한 주의사항을 안내해 드립니다. 모두가 안전하게 정보를 공유하고 사용할 수 있도록 주의해주시길 부탁드립니다.','admin',DEFAULT, DEFAULT);
 
 -- faq 테이블 생성

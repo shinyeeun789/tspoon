@@ -145,13 +145,15 @@ public class  DataRoomController {
                 folder.mkdirs();
             }
 
-            // 기존 파일 삭제
-            List<FileInfo> fileList = fileInfoService.fileInfoList(dataRoom.getArticleNo());
-            ServletContext application = request.getSession().getServletContext();
-            for(FileInfo fileInfo : fileList) {
-                File oldFile = new File(application.getRealPath("/")+"/resources/upload/dataRoom/"+fileInfo.getSaveFolder()+"/"+fileInfo.getSaveFile());
-                if(oldFile.exists()) {
-                    oldFile.delete();
+            // 파일이 새롭게 업로드되지 않았다면 삭제하지 않도록 처리
+            if(files[0].getSize() != 0) {
+                List<FileInfo> fileList = fileInfoService.fileInfoList(dataRoom.getArticleNo());
+                ServletContext application = request.getSession().getServletContext();
+                for (FileInfo fileInfo : fileList) {
+                    File oldFile = new File(application.getRealPath("/") + "/resources/upload/" + fileInfo.getSaveFolder() + "/" + fileInfo.getSaveFile());
+                    if (oldFile.exists()) {
+                        oldFile.delete();
+                    }
                 }
             }
 
